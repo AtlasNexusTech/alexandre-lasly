@@ -93,6 +93,80 @@ function animateSections() {
   }
 }
 
+function pulseWhileVisible(element, keyframes, options, restingState) {
+  inView(
+    element,
+    () => {
+      const controls = animate(element, keyframes, options);
+      return () => {
+        controls.stop();
+        animate(element, restingState, { duration: 0.12 });
+      };
+    },
+    { amount: 0.2 },
+  );
+}
+
+function addPulseMotion() {
+  const statusDot = document.querySelector('.status-dot');
+  if (statusDot) {
+    pulseWhileVisible(
+      statusDot,
+      {
+        scale: [1, 1.14, 1],
+        boxShadow: [
+          '0 0 0 4px rgba(21, 190, 83, 0.18)',
+          '0 0 0 10px rgba(21, 190, 83, 0)',
+          '0 0 0 4px rgba(21, 190, 83, 0.18)',
+        ],
+      },
+      { duration: 2.2, repeat: Infinity, ease: 'easeOut' },
+      { scale: 1, boxShadow: '0 0 0 5px rgba(21, 190, 83, 0.14)' },
+    );
+  }
+
+  document.querySelectorAll('.button').forEach((button, index) => {
+    const ring = document.createElement('span');
+    ring.className = 'button-pulse-ring';
+    ring.setAttribute('aria-hidden', 'true');
+    button.prepend(ring);
+    pulseWhileVisible(
+      ring,
+      { opacity: [0, 0.52, 0], scale: [1, 1.025, 1.13] },
+      {
+        duration: 2.5,
+        repeat: Infinity,
+        repeatDelay: 0.25,
+        delay: index * 0.22,
+        ease: [0.22, 1, 0.36, 1],
+      },
+      { opacity: 0, scale: 1 },
+    );
+  });
+
+  document.querySelectorAll('.timeline-dot').forEach((dot, index) => {
+    pulseWhileVisible(
+      dot,
+      {
+        scale: [1, 1.18, 1],
+        boxShadow: [
+          '0 0 0 1px rgba(83, 58, 253, 0.38)',
+          '0 0 0 9px rgba(83, 58, 253, 0)',
+          '0 0 0 1px rgba(83, 58, 253, 0.38)',
+        ],
+      },
+      {
+        duration: 2.15,
+        repeat: Infinity,
+        repeatDelay: 0.35,
+        delay: index * 0.17,
+        ease: 'easeOut',
+      },
+      { scale: 1, boxShadow: '0 0 0 1px rgba(83, 58, 253, 0.38)' },
+    );
+  });
+}
+
 function addHoverMotion() {
   if (!supportsHover) return;
 
@@ -156,6 +230,7 @@ function initMotion() {
   animateReadingProgress();
   animateHero();
   animateSections();
+  addPulseMotion();
   addHoverMotion();
 }
 
