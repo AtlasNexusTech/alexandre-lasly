@@ -301,6 +301,10 @@ h1 {
 .profile-portrait { cursor: default; }
 .profile-portrait img { will-change: transform; }
 
+@media (min-width: 901px) {
+  #parcours .kicker { transform: translateX(4px); }
+}
+
 @media (max-width: 900px) {
   .nav-links { display: none; position: absolute; top: 72px; right: 20px; left: 20px; padding: 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); box-shadow: var(--shadow); }
   .nav-links.is-open { display: grid; gap: 4px; }
