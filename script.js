@@ -22,8 +22,7 @@ function applyTheme(theme) {
 }
 
 const savedTheme = localStorage.getItem('alexandre-lasly-theme');
-const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-applyTheme(savedTheme || preferredTheme);
+applyTheme(savedTheme || 'dark');
 
 themeButton?.addEventListener('click', () => {
   const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';

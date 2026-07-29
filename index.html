@@ -3,8 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    try {
+      document.documentElement.dataset.theme = localStorage.getItem('alexandre-lasly-theme') || 'dark';
+    } catch {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  </script>
   <meta name="description" content="Parcours professionnel d’Alexandre Lasly : commerce B2B, grands comptes, relation client internationale, automobile, certification et finance.">
-  <meta name="theme-color" content="#533afd">
+  <meta name="theme-color" content="#090d1a">
   <link rel="canonical" href="https://atlasnexus.tech/alexandre-lasly/">
   <link rel="alternate" hreflang="fr" href="https://atlasnexus.tech/alexandre-lasly/">
   <link rel="alternate" hreflang="x-default" href="https://atlasnexus.tech/alexandre-lasly/">
