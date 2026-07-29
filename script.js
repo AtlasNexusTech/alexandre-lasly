@@ -53,11 +53,18 @@ document.addEventListener('keydown', (event) => {
 
 const contactButton = document.querySelector('[data-contact-reveal]');
 const contactPanel = document.querySelector('[data-contact-panel]');
+const contactLabel = document.querySelector('[data-contact-label]');
 const decodeContact = (points) => String.fromCodePoint(...points);
 
 contactButton?.addEventListener('click', () => {
   const isVisible = contactPanel.classList.toggle('is-visible');
   contactButton.setAttribute('aria-expanded', String(isVisible));
+  if (contactLabel) {
+    const english = document.documentElement.lang === 'en';
+    contactLabel.textContent = isVisible
+      ? (english ? 'Hide my contact details' : 'Masquer mes coordonnées')
+      : (english ? 'Reveal my contact details' : 'Afficher mes coordonnées');
+  }
   if (!isVisible || contactPanel.childElementCount) return;
 
   const email = decodeContact([108,97,115,108,121,97,108,101,120,97,110,100,114,101,64,103,109,97,105,108,46,99,111,109]);
