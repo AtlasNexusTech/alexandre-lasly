@@ -61,10 +61,13 @@ function animateSections() {
       () => {
         if (element.dataset.motionEntered === 'true') return;
         element.dataset.motionEntered = 'true';
-        element.classList.add('motion-animated');
         const isTimelineItem = element.classList.contains('timeline-item');
+        const animationTargets = isTimelineItem
+          ? element.querySelectorAll('.period, .experience')
+          : [element];
+        markAnimated(animationTargets);
         animate(
-          element,
+          animationTargets,
           {
             opacity: [0.62, 1],
             x: isTimelineItem ? [-18, 0] : [0, 0],
