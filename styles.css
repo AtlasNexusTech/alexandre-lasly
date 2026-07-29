@@ -192,9 +192,13 @@ h1 {
 }
 .profile-portrait {
   position: relative;
+  width: calc(100% - 48px);
+  max-width: 320px;
   aspect-ratio: 4 / 3;
-  margin: 0;
+  margin: 28px auto 0;
   overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
   background: var(--surface-soft);
 }
 .profile-portrait::after {
