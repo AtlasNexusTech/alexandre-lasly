@@ -1,0 +1,16 @@
+{
+  "name": "alexandre-lasly-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio professionnel statique avec animations Motion.",
+  "scripts": {
+    "build": "npm run build:motion",
+    "build:motion": "esbuild src/motion.js --bundle --minify --format=iife --target=es2020 --outfile=assets/motion.bundle.js"
+  },
+  "dependencies": {
+    "motion": "12.43.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.1"
+  }
+}

@@ -16,11 +16,22 @@ Le dépôt ne publie ni adresse personnelle ni PDF complet du CV. L’e-mail et 
 
 ## Développement local
 
+Installer les dépendances et reconstruire le bundle Motion :
+
+```bash
+npm install
+npm run build
+```
+
+Puis lancer le site :
+
 ```bash
 python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Puis ouvrir `http://127.0.0.1:8765/`.
+Ouvrir ensuite `http://127.0.0.1:8765/`.
+
+Les animations sont définies dans `src/motion.js` et compilées dans `assets/motion.bundle.js`. Le contenu reste visible sans JavaScript et les animations sont désactivées lorsque `prefers-reduced-motion: reduce` est actif.
 
 ## Publication
 
@@ -28,4 +39,4 @@ Le site est conçu pour GitHub Pages depuis la branche `main`, répertoire `/`.
 
 ## Stack
 
-HTML5, CSS natif et JavaScript sans dépendance de production.
+HTML5, CSS natif, JavaScript sans framework, Motion 12 et esbuild pour le bundle d’animation.
