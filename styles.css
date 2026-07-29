@@ -237,6 +237,7 @@ h1 {
 .section { padding: 92px 0; }
 .section-alt { border-block: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 74%, transparent); }
 .section-dark { background: var(--dark-section); color: #fff; }
+.section-dark .kicker { color: #8d7cff; }
 .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-bottom: 54px; align-items: start; }
 .section-head h2 { max-width: 15ch; margin: 0; font-size: clamp(2.25rem, 5vw, 4.4rem); font-weight: 300; letter-spacing: -.045em; line-height: 1; }
 .section-intro { max-width: 64ch; margin: 0; color: var(--muted); font-size: 19px; }
@@ -339,8 +340,17 @@ h1 {
   .profile-panel { padding: 26px; }
   .metric { padding: 22px 16px; }
   .section { padding: 70px 0; }
-  .timeline::before { left: 5px; }
+  .timeline::before { display: none; }
   .timeline-item { grid-template-columns: 1fr; gap: 10px; padding-left: 32px; }
+  .timeline-item:not(:last-child)::before {
+    position: absolute;
+    top: 13px;
+    bottom: -14px;
+    left: 6px;
+    width: 1px;
+    background: var(--border);
+    content: '';
+  }
   .timeline-dot { left: 0; }
   .period { padding-top: 0; }
   .education-card { min-height: auto; }

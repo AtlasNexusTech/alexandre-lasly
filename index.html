@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
+    const defaultTheme = matchMedia('(max-width: 620px)').matches ? 'light' : 'dark';
     try {
-      document.documentElement.dataset.theme = localStorage.getItem('alexandre-lasly-theme') || 'dark';
+      document.documentElement.dataset.theme = localStorage.getItem('alexandre-lasly-theme') || defaultTheme;
     } catch {
-      document.documentElement.dataset.theme = 'dark';
+      document.documentElement.dataset.theme = defaultTheme;
     }
   </script>
   <meta name="description" content="Parcours professionnel d’Alexandre Lasly : commerce B2B, grands comptes, relation client internationale, automobile, certification et finance.">
@@ -15,7 +16,7 @@
   <link rel="canonical" href="https://atlasnexus.tech/alexandre-lasly/">
   <link rel="alternate" hreflang="fr" href="https://atlasnexus.tech/alexandre-lasly/">
   <link rel="alternate" hreflang="x-default" href="https://atlasnexus.tech/alexandre-lasly/">
-  <link rel="stylesheet" href="styles.css?v=a11y1">
+  <link rel="stylesheet" href="styles.css?v=responsive1">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <title>Alexandre Lasly — Parcours commercial B2B</title>
   <meta property="og:type" content="profile">
@@ -126,7 +127,7 @@
   </main>
 
   <footer class="footer"><div class="container footer-row"><span>© 2026 Alexandre Lasly</span><div class="footer-links"><a href="https://github.com/AtlasNexusTech" rel="noopener">GitHub</a></div></div></footer>
-  <script src="script.js" defer></script>
+  <script src="script.js?v=responsive1" defer></script>
   <script src="assets/motion.bundle.js?v=timeline1" defer></script>
 </body>
 </html>

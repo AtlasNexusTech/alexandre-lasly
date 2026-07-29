@@ -21,12 +21,28 @@ function applyTheme(theme) {
   }
 }
 
-const savedTheme = localStorage.getItem('alexandre-lasly-theme');
-applyTheme(savedTheme || 'dark');
+function readSavedTheme() {
+  try {
+    return localStorage.getItem('alexandre-lasly-theme');
+  } catch {
+    return null;
+  }
+}
+
+function saveTheme(theme) {
+  try {
+    localStorage.setItem('alexandre-lasly-theme', theme);
+  } catch {
+    // Theme switching still works when storage is unavailable.
+  }
+}
+
+const savedTheme = readSavedTheme();
+applyTheme(savedTheme || document.documentElement.dataset.theme || 'dark');
 
 themeButton?.addEventListener('click', () => {
   const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-  localStorage.setItem('alexandre-lasly-theme', nextTheme);
+  saveTheme(nextTheme);
   applyTheme(nextTheme);
 });
 

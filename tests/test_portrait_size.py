@@ -14,5 +14,6 @@ def test_profile_portrait_is_compact_and_centered():
     assert "border-radius:" in portrait_rule
 
 
-def test_accessible_stylesheet_cache_is_versioned():
-    assert 'styles.css?v=a11y1' in HTML
+def test_responsive_assets_are_cache_versioned():
+    assert 'styles.css?v=responsive1' in HTML
+    assert 'script.js?v=responsive1' in HTML
