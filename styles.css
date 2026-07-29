@@ -226,7 +226,7 @@ h1 {
 .section { padding: 92px 0; }
 .section-alt { border-block: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 74%, transparent); }
 .section-dark { background: var(--dark-section); color: #fff; }
-.section-head { display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr); gap: 48px; margin-bottom: 54px; align-items: start; }
+.section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-bottom: 54px; align-items: start; }
 .section-head h2 { max-width: 15ch; margin: 0; font-size: clamp(2.25rem, 5vw, 4.4rem); font-weight: 300; letter-spacing: -.045em; line-height: 1; }
 .section-intro { max-width: 64ch; margin: 0; color: var(--muted); font-size: 19px; }
 .section-dark .section-intro { color: rgba(255, 255, 255, .7); }
@@ -300,10 +300,6 @@ h1 {
 .motion-animated { will-change: transform, opacity; }
 .profile-portrait { cursor: default; }
 .profile-portrait img { will-change: transform; }
-
-@media (min-width: 901px) {
-  #parcours .kicker { transform: translateX(4px); }
-}
 
 @media (max-width: 900px) {
   .nav-links { display: none; position: absolute; top: 72px; right: 20px; left: 20px; padding: 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); box-shadow: var(--shadow); }
