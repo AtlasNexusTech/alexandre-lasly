@@ -9,6 +9,7 @@
   --muted: #455c74;
   --primary: #533afd;
   --primary-hover: #4434d4;
+  --on-primary: #fff;
   --accent: #ea2261;
   --border: #dce6f1;
   --border-strong: #b9b9f9;
@@ -28,6 +29,7 @@
   --muted: #afbed0;
   --primary: #8d7cff;
   --primary-hover: #a99dff;
+  --on-primary: #090d1a;
   --accent: #ff5a90;
   --border: #293752;
   --border-strong: #665efd;
@@ -160,7 +162,7 @@ h1 {
   transition: transform .18s ease, border-color .18s ease, background-color .18s ease;
 }
 .button:hover { transform: translateY(-2px); border-color: var(--primary); background: color-mix(in srgb, var(--primary) 5%, transparent); }
-.button-primary { border-color: var(--primary); background: var(--primary); color: #fff; box-shadow: 0 16px 25px -18px rgba(83, 58, 253, .85); }
+.button-primary { border-color: var(--primary); background: var(--primary); color: var(--on-primary); box-shadow: 0 16px 25px -18px rgba(83, 58, 253, .85); }
 .button-primary:hover { border-color: var(--primary-hover); background: var(--primary-hover); }
 .button-pulse-ring {
   position: absolute;

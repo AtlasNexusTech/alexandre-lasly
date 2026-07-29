@@ -48,3 +48,36 @@ def test_dark_theme_is_applied_before_external_javascript(portfolio_url):
         assert page.locator("html").get_attribute("data-theme") == "dark"
 
         browser.close()
+
+
+def test_primary_contact_button_meets_wcag_contrast_in_dark_theme(portfolio_url):
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto(portfolio_url, wait_until="networkidle")
+
+        contrast_ratio = page.locator("[data-contact-reveal]").evaluate(
+            """
+            (element) => {
+              const parse = (color) => color.match(/[\\d.]+/g).slice(0, 3).map(Number);
+              const luminance = (rgb) => {
+                const channels = rgb.map((value) => {
+                  const channel = value / 255;
+                  return channel <= 0.04045
+                    ? channel / 12.92
+                    : ((channel + 0.055) / 1.055) ** 2.4;
+                });
+                return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];
+              };
+              const style = getComputedStyle(element);
+              const foreground = luminance(parse(style.color));
+              const background = luminance(parse(style.backgroundColor));
+              return (Math.max(foreground, background) + 0.05)
+                / (Math.min(foreground, background) + 0.05);
+            }
+            """
+        )
+
+        assert contrast_ratio >= 4.5
+
+        browser.close()
