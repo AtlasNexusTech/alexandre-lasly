@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://atlasnexustech.github.io/alexandre-lasly/sitemap.xml
+Sitemap: https://atlasnexus.tech/alexandre-lasly/sitemap.xml
