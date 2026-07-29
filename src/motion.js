@@ -107,6 +107,31 @@ function pulseWhileVisible(element, keyframes, options, restingState) {
   );
 }
 
+function animateGradientText() {
+  document.querySelectorAll('.animated-gradient-text').forEach((element, index) => {
+    inView(
+      element,
+      () => {
+        const controls = animate(
+          element,
+          { backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] },
+          {
+            duration: 7.2,
+            repeat: Infinity,
+            delay: index * 0.35,
+            ease: 'linear',
+          },
+        );
+        return () => {
+          controls.stop();
+          animate(element, { backgroundPosition: '0% 50%' }, { duration: 0.15 });
+        };
+      },
+      { amount: 0.25 },
+    );
+  });
+}
+
 function addPulseMotion() {
   const statusDot = document.querySelector('.status-dot');
   if (statusDot) {
@@ -230,6 +255,7 @@ function initMotion() {
   animateReadingProgress();
   animateHero();
   animateSections();
+  animateGradientText();
   addPulseMotion();
   addHoverMotion();
 }

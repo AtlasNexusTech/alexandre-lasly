@@ -130,13 +130,18 @@ h1 {
 .hero-role {
   display: block;
   margin-top: 15px;
-  background: linear-gradient(92deg, var(--primary), #7b6cff 52%, var(--accent));
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
   font-size: .5em;
   letter-spacing: -.025em;
   line-height: 1.08;
+}
+.animated-gradient-text {
+  background: linear-gradient(100deg, var(--primary) 0%, #7b6cff 25%, var(--accent) 50%, #7b6cff 75%, var(--primary) 100%);
+  background-size: 240% 100%;
+  background-position: 0% 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 .hero-lead { max-width: 62ch; margin-bottom: 0; color: var(--muted); font-size: clamp(1.1rem, 2vw, 1.3rem); }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
@@ -267,6 +272,7 @@ h1 {
 .interest span { color: var(--muted); font-size: 14px; }
 
 .contact { padding: 96px 0; text-align: center; }
+.contact .animated-gradient-text { display: inline-block; color: transparent; }
 .contact h2 { max-width: 18ch; margin: 14px auto 20px; font-size: clamp(2.5rem, 6vw, 5.6rem); font-weight: 300; letter-spacing: -.05em; line-height: .98; }
 .contact p { max-width: 60ch; margin-inline: auto; color: var(--muted); font-size: 19px; }
 .contact .actions { justify-content: center; }
