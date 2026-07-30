@@ -153,7 +153,7 @@ function addPulseMotion() {
     );
   }
 
-  document.querySelectorAll('.button').forEach((button, index) => {
+  document.querySelectorAll('.button:not([data-no-halo])').forEach((button, index) => {
     const ring = document.createElement('span');
     ring.className = 'button-pulse-ring';
     ring.setAttribute('aria-hidden', 'true');

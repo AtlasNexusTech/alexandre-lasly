@@ -164,6 +164,8 @@ h1 {
 .button:hover { transform: translateY(-2px); border-color: var(--primary); background: color-mix(in srgb, var(--primary) 5%, transparent); }
 .button-primary { border-color: var(--primary); background: var(--primary); color: var(--on-primary); box-shadow: 0 16px 25px -18px rgba(83, 58, 253, .85); }
 .button-primary:hover { border-color: var(--primary-hover); background: var(--primary-hover); }
+.button[data-no-halo],
+.button[data-no-halo]:hover { box-shadow: none; }
 .button-pulse-ring {
   position: absolute;
   inset: -2px;
