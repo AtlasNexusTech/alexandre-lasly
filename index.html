@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
-    const defaultTheme = matchMedia('(max-width: 620px)').matches ? 'light' : 'dark';
+    const defaultTheme = 'light';
     try {
       document.documentElement.dataset.theme = localStorage.getItem('alexandre-lasly-theme') || defaultTheme;
     } catch {
