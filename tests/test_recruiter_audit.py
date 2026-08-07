@@ -7,7 +7,7 @@ HTML = (ROOT / "index.html").read_text(encoding="utf-8")
 
 
 def test_recruiter_facing_hero_is_specific_and_actionable():
-    assert "Account Manager / Customer Success B2B" in HTML
+    assert "Fondateur d'Atlas Nexus" in HTML
     assert "8 ans d’expérience" in HTML
     assert 'href="https://www.linkedin.com/in/alexandre-lasly"' in HTML
     assert 'href="#contact"' in HTML
@@ -18,10 +18,10 @@ def test_person_schema_uses_verified_public_profiles():
     assert match is not None
     data = json.loads(match.group(1))
     assert data["@type"] == "Person"
-    assert data["jobTitle"] == "Account Manager / Customer Success B2B"
+    assert data["jobTitle"] == "Fondateur d'Atlas Nexus"
     assert "https://www.linkedin.com/in/alexandre-lasly" in data["sameAs"]
     assert "https://github.com/AtlasNexusTech" in data["sameAs"]
-    assert "https://www.malt.fr/profile/alexandrechahibalasly" in data["sameAs"]
+    assert "https://atlasnexus.tech/" in data["sameAs"]
 
 
 def test_ambiguous_or_abstract_copy_is_replaced():
