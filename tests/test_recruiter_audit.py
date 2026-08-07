@@ -21,6 +21,7 @@ def test_person_schema_uses_verified_public_profiles():
     assert data["jobTitle"] == "Account Manager / Customer Success B2B"
     assert "https://www.linkedin.com/in/alexandre-lasly" in data["sameAs"]
     assert "https://github.com/AtlasNexusTech" in data["sameAs"]
+    assert "https://www.malt.fr/profile/alexandrechahibalasly" in data["sameAs"]
 
 
 def test_ambiguous_or_abstract_copy_is_replaced():
